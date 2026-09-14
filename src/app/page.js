@@ -93,8 +93,13 @@ export default function Home() {
             { iconId: "archive", label: "Paper", href: PAPER_URL },
             {
               iconId: "github",
-              label: "Code (Coming Soon)",
+              label: "Code",
               href: "https://github.com/adonaydem/chexground",
+            },
+            {
+              iconId: "huggingface",
+              label: "Model",
+              href: "https://huggingface.co/adonaydem/CheXGround",
             },
           ]}
         />

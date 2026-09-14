@@ -1,9 +1,23 @@
 import { Mail, Activity ,Twitter, GitHub, Layers, Cpu, Coffee, Archive } from "react-feather";
 
+const HuggingFace = ({ size, ...delegated }) => (
+  <span
+    {...delegated}
+    style={{
+      display: "inline-flex",
+      fontSize: size,
+      lineHeight: 1,
+    }}
+  >
+    🤗
+  </span>
+);
+
 const icons = {
   mail: Mail,
   twitter: Twitter,
   github: GitHub,
+  huggingface: HuggingFace,
   layers: Layers,
   activity: Activity,
   cpu: Cpu,
