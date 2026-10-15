@@ -2,7 +2,6 @@ import * as React from "react";
 import Footer from "../component/Footer";
 import ProjectHeader from "../component/ProjectHeader";
 import TextBlock from "../component/TextBlock";
-import ProjectLinks from "../component/ProjectLink";
 import CiteUs from "../component/Cite/Cite";
 
 const authors = [
@@ -63,7 +62,16 @@ export default function Home() {
     <>
       <main className="page-shell">
         <ProjectHeader
-          title="Distractors are the Real Enemy: Visual Distraction Adversarial Perturbations on SAM2-Based Video Tracking and Segmentation"
+          title={
+            <>
+              <span className="hero-title-line">
+                Distractors are the Real Enemy: Visual Distraction Adversarial
+              </span>{" "}
+              <span className="hero-title-line">
+                Perturbations on SAM2-Based Video Tracking and Segmentation
+              </span>
+            </>
+          }
           authors={authors.map((author) => (
             <a href={author.href} key={author.name}>
               {author.name}<sup>{author.institutions}</sup>
@@ -77,13 +85,6 @@ export default function Home() {
             </>
           }
           publishedAt="✨ We just got accepted to WACV 2027, paper coming soon ✨"
-        />
-        <ProjectLinks
-          links={[
-            { iconId: "archive", label: "Paper", disabled: true },
-            { iconId: "github", label: "Code", disabled: true },
-            { iconId: "huggingface", label: "Model", disabled: true },
-          ]}
         />
         <section aria-label="Supplementary qualitative comparison" className="project-video">
           <video
@@ -102,15 +103,14 @@ export default function Home() {
         </section>
         <TextBlock title="Summary">
           Promptable video trackers such as SAM2 achieve accurate and robust performance
-          through strong temporal consistency, making them important foundations for
-          downstream video understanding and tracking. Existing attacks largely focus on
+          making them important foundations for VOT/VOS tasks. We are interested in analysing the adversarial robustness of these trackers. Existing adversarial perturbations largely focus on
           local mask degradation and short-term feature disruption, leaving longer-term
-          dynamics and competing-object interference from distractors insufficiently
-          explored. We introduce DistractAttack, a white-box attack that uses background
+          dynamics and competing-object interference, i.e. <b>distractors</b>, insufficiently
+          explored. We introduce DistractAttack, a white-box method that uses background
           distractors to disrupt target tracking persistently. Its Counterfactual
           Distractor Search propagates clean and attacked trajectories in parallel to find
           plausible competing regions that become increasingly effective under
-          perturbation.
+          perturbation. We further analyze transferability and defence mechanisms that can be used to mitigate such impact.
         </TextBlock>
         <section aria-label="DistractAttack method" className="figure-gallery method-gallery">
           <PaperFigure
