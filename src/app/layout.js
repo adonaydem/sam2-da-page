@@ -4,8 +4,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'CheXGround',
-  description: 'Anatomical Region Tokens for Grounded Longitudinal Chest X-ray Interpretation',
+  title: 'Distractors are the Real Enemy',
+  description: 'DistractAttack: visual distraction adversarial perturbations on SAM2-based video tracking and segmentation.',
 };
 
 export default function RootLayout({ children }) {

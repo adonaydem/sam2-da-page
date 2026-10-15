@@ -177,6 +177,16 @@ canvas {
   background: var(--surface);
 }
 
+.project-link--disabled,
+.project-link--disabled:hover {
+  border-color: var(--line);
+  color: #878d97;
+  background: var(--surface);
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+}
+
 .project-link svg {
   stroke: currentColor;
 }
@@ -202,10 +212,32 @@ canvas {
   line-height: 1.82;
 }
 
+.project-video {
+  width: min(100%, 1200px);
+  margin: 0 auto clamp(3.5rem, 7vw, 6rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 10px 32px rgba(20, 24, 31, 0.06);
+}
+
+.project-video-player {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: contain;
+}
+
 .figure-gallery {
   display: grid;
   gap: clamp(1.25rem, 2.5vw, 2rem);
   margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+
+.method-gallery {
+  width: min(100%, 1200px);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .paper-figure {

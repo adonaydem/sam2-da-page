@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 const CiteUs = ({
+  heading = "Citation",
   entryType = "article",
   citationKey = "yourKey",
   title,
@@ -48,7 +49,7 @@ const CiteUs = ({
   return (
     <section className="citation-section">
       <div className="citation-header">
-        <h2 className="citation-heading">Citation</h2>
+        <h2 className="citation-heading">{heading}</h2>
         <button className="copy-button" onClick={handleCopy} type="button">
           {copied ? "Copied" : "Copy"}
         </button>

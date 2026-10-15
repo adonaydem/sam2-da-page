@@ -5,43 +5,26 @@ import TextBlock from "../component/TextBlock";
 import ProjectLinks from "../component/ProjectLink";
 import CiteUs from "../component/Cite/Cite";
 
-const PAPER_URL = "https://arxiv.org/abs/2608.30758";
-
 const authors = [
   {
     name: "Adonay Demewez Gebremedhin",
-    href: "https://adonaydem.github.io/",
+    href: "https://openreview.net/profile?id=~Adonay_Demewez_Gebremedhin1",
     institutions: "1",
-  },
-  {
-    name: "Wessam Shehieb",
-    href: "https://scholar.google.com/citations?user=5oaOk_YAAAAJ&hl=en",
-    institutions: "1",
-  },
-  {
-    name: "Sara Alansari",
-    href: "mailto:saraansari@live.com",
-    institutions: "2",
   },
   {
     name: "Mohamad Alansari",
-    href: "https://github.com/HamadYA",
-    institutions: "3",
+    href: "https://openreview.net/profile?id=~Mohamad_Alansari1",
+    institutions: "2",
+  },
+  {
+    name: "Wessam Shehieb",
+    href: "https://openreview.net/profile?id=~Wessam_Shehieb2",
+    institutions: "1",
   },
   {
     name: "Muzammal Naseer",
-    href: "mailto:muhammadmuzammal.naseer@ku.ac.ae",
-    institutions: "3,4",
-  },
-  {
-    name: "Sajid Javed",
-    href: "mailto:sajid.javed@ku.ac.ae",
-    institutions: "3",
-  },
-  {
-    name: "Naoufel Werghi",
-    href: "mailto:Naoufel.Werghi@ku.ac.ae",
-    institutions: "3",
+    href: "https://openreview.net/profile?id=~Muzammal_Naseer1",
+    institutions: "2,3",
   },
 ];
 
@@ -54,11 +37,20 @@ function paperAsset(path) {
   return `${basePath}/paper-assets/${path}`;
 }
 
-function PaperFigure({ src, alt, className = "" }) {
+function publicAsset(path) {
+  const basePath =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_BASE_PATH || ""
+      : "";
+
+  return `${basePath}/${path}`;
+}
+
+function PaperFigure({ src, alt }) {
   const asset = paperAsset(src);
 
   return (
-    <figure className={`paper-figure ${className}`.trim()}>
+    <figure className="paper-figure">
       <a aria-label={`Open full-resolution ${alt}`} href={asset}>
         <img alt={alt} className="paper-screenshot" loading="lazy" src={asset} />
       </a>
@@ -71,8 +63,7 @@ export default function Home() {
     <>
       <main className="page-shell">
         <ProjectHeader
-          title="CheXGround: Anatomical Region Tokens for Grounded Longitudinal Chest X-ray Interpretation"
-          logoSrc={paperAsset("Figures/logo.jpeg")}
+          title="Distractors are the Real Enemy: Visual Distraction Adversarial Perturbations on SAM2-Based Video Tracking and Segmentation"
           authors={authors.map((author) => (
             <a href={author.href} key={author.name}>
               {author.name}<sup>{author.institutions}</sup>
@@ -81,88 +72,60 @@ export default function Home() {
           institutions={
             <>
               <span><sup>1</sup> Ajman University, UAE</span>
-              <span><sup>2</sup> University of Birmingham, UK</span>
-              <span><sup>3</sup> Khalifa University, UAE</span>
-              <span><sup>4</sup> University of Western Australia, Australia</span>
+              <span><sup>2</sup> Khalifa University, UAE</span>
+              <span><sup>3</sup> University of Western Australia, Australia</span>
             </>
           }
-          publishedAt="✨ BMVC 2026 ✨"
+          publishedAt="✨ We just got accepted to WACV 2027, paper coming soon ✨"
         />
         <ProjectLinks
           links={[
-            { iconId: "archive", label: "Paper", href: PAPER_URL },
-            {
-              iconId: "github",
-              label: "Code",
-              href: "https://github.com/adonaydem/chexground",
-            },
-            {
-              iconId: "huggingface",
-              label: "Model",
-              href: "https://huggingface.co/adonaydem/CheXGround",
-            },
+            { iconId: "archive", label: "Paper", disabled: true },
+            { iconId: "github", label: "Code", disabled: true },
+            { iconId: "huggingface", label: "Model", disabled: true },
           ]}
         />
-        <TextBlock title="Abstract">
-          Recent radiology multi-modal language models have made substantial progress
-          in chest X-ray report generation, visual question answering, and temporal
-          reasoning. While longitudinal chest X-ray interpretation compares sequential
-          examinations to describe change, visual grounding aims to connect clinical
-          language with localized image evidence. Although longitudinal modeling and
-          visual grounding have each advanced radiology language models, how localized
-          visual evidence can support longitudinal interpretation remains
-          under-explored. We introduce CheXGround, a region-grounded longitudinal chest
-          X-ray language model that represents paired studies through corresponding
-          anatomical regions. CheXGround extracts anatomical regions from current and
-          prior radiographs, encodes them as temporally enhanced Region-of-Interest
-          (ROI) tokens, and combines them with global temporal image context during
-          generation. To connect these region tokens with clinical text, we propose
-          Temporal Region–Phrase Alignment, a pretraining objective that aligns temporal
-          anatomical representations with localized report phrases. We evaluate
-          CheXGround on single-study and longitudinal Visual Question Answering (VQA),
-          longitudinal findings generation, temporal grounded VQA, and anatomical
-          grounding. Across these tasks, CheXGround improves clinical language quality,
-          temporal reasoning, and localization accuracy over recent baselines. Our
-          results suggest that organizing longitudinal evidence at the anatomical level
-          is a strong representation for grounded radiology language modeling.
+        <section aria-label="Supplementary qualitative comparison" className="project-video">
+          <video
+            autoPlay
+            className="project-video-player"
+            controls
+            loop
+            muted
+            playsInline
+            poster={paperAsset("supplementary-video-poster.png")}
+            preload="metadata"
+          >
+            <source src={publicAsset("video.mp4")} type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
+        </section>
+        <TextBlock title="Summary">
+          Promptable video trackers such as SAM2 achieve accurate and robust performance
+          through strong temporal consistency, making them important foundations for
+          downstream video understanding and tracking. Existing attacks largely focus on
+          local mask degradation and short-term feature disruption, leaving longer-term
+          dynamics and competing-object interference from distractors insufficiently
+          explored. We introduce DistractAttack, a white-box attack that uses background
+          distractors to disrupt target tracking persistently. Its Counterfactual
+          Distractor Search propagates clean and attacked trajectories in parallel to find
+          plausible competing regions that become increasingly effective under
+          perturbation.
         </TextBlock>
-        <section aria-label="Paper figures" className="figure-gallery">
+        <section aria-label="DistractAttack method" className="figure-gallery method-gallery">
           <PaperFigure
-            alt="Overview of the grounded radiology tasks studied in this work"
-            className="paper-figure--single"
-            src="task-overview.png"
+            alt="DistractAttack method overview"
+            src="distractattack-method.png"
           />
-          <div className="figure-pair">
-            <PaperFigure
-              alt="Temporal anatomical ROI encoding and region-phrase alignment"
-              src="method-region-phrase.png"
-            />
-            <PaperFigure
-              alt="CheXGround architecture"
-              src="method-architecture.png"
-            />
-          </div>
-          <div className="figure-pair">
-            <PaperFigure
-              alt="Qualitative comparison of single-image and temporal grounding"
-              src="qualitative-grounding.png"
-            />
-            <PaperFigure
-              alt="Qualitative comparison on anatomy grounding"
-              src="qualitative-anatomy.png"
-            />
-          </div>
         </section>
         <CiteUs
-          entryType="misc"
-          citationKey="gebremedhin2026chexgroundanatomicalregiontokens"
-          title="CheXGround: Anatomical Region Tokens for Grounded Longitudinal Chest X-ray Interpretation"
+          heading="Reference"
+          entryType="inproceedings"
+          citationKey="gebremedhin2027distractors"
+          title="Distractors are the Real Enemy: Visual Distraction Adversarial Perturbations on SAM2-Based Video Tracking and Segmentation"
           authors={authors.map((author) => author.name)}
-          year="2026"
-          eprint="2608.30758"
-          archivePrefix="arXiv"
-          primaryClass="cs.CV"
-          url="https://arxiv.org/abs/2608.30758"
+          booktitle="Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+          year="2027"
         />
       </main>
       <Footer />

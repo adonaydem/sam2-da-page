@@ -1,15 +1,15 @@
-# Research Project Page Starter
-Starter template with a modern tech stack for research project pages.
-No need to learn React, just update the content under the `src/app/page.js` file
-and deploy using GitHub pages.
-Template example page: [https://freiberg-roman.github.io/research-project-page/](https://freiberg-roman.github.io/research-project-page/)
+# Distractors are the Real Enemy
+
+Project page for **Distractors are the Real Enemy: Visual Distraction Adversarial
+Perturbations on SAM2-Based Video Tracking and Segmentation**, accepted to WACV 2027.
 
 ## Usage
 - Clone as template and update the content under `src/app/page.js` file
 - Add as many `TextBlock`, `ImageBlock`, `VideoBlock` etc. components as needed
 - Add your images and videos under the `public` folder
 - Link the `public` assets in the `src/app/page.js` file
-- Update the `.env` file to your project name
+- Update `NEXT_PUBLIC_BASE_PATH` in `.env` if the GitHub repository name differs
+  from `distractattack-website`
 - (optional) update the `favicon.ico`
 - Deploy using GitHub pages
 
