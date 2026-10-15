@@ -7,22 +7,22 @@ import CiteUs from "../component/Cite/Cite";
 const authors = [
   {
     name: "Adonay Demewez Gebremedhin",
-    href: "https://openreview.net/profile?id=~Adonay_Demewez_Gebremedhin1",
+    href: "https://adonaydem.github.io/",
     institutions: "1",
   },
   {
     name: "Mohamad Alansari",
-    href: "https://openreview.net/profile?id=~Mohamad_Alansari1",
+    href: "https://scholar.google.com/citations?view_op=search_authors&mauthors=Mohamad+Alansari&hl=en&oi=ao",
     institutions: "2",
   },
   {
     name: "Wessam Shehieb",
-    href: "https://openreview.net/profile?id=~Wessam_Shehieb2",
+    href: "https://scholar.google.com/citations?user=5oaOk_YAAAAJ&hl=en",
     institutions: "1",
   },
   {
     name: "Muzammal Naseer",
-    href: "https://openreview.net/profile?id=~Muzammal_Naseer1",
+    href: "https://scholar.google.com/citations?user=tM9xKA8AAAAJ&hl=en",
     institutions: "2,3",
   },
 ];
