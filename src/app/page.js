@@ -65,7 +65,7 @@ export default function Home() {
           title={
             <>
               <span className="hero-title-line">
-                Distractors are the Real Enemy: Visual Distraction Adversarial
+                Visual Distraction Adversarial
               </span>{" "}
               <span className="hero-title-line">
                 Perturbations on SAM2-Based Video Tracking and Segmentation
@@ -106,16 +106,16 @@ export default function Home() {
           making them important foundations for VOT/VOS tasks. We are interested in analysing the adversarial robustness of these trackers. Existing adversarial perturbations largely focus on
           local mask degradation and short-term feature disruption, leaving longer-term
           dynamics and competing-object interference, i.e. <b>distractors</b>, insufficiently
-          explored. We introduce DistractAttack, a white-box method that uses background
+          explored. We introduce a white-box method that uses background
           distractors to disrupt target tracking persistently. Its Counterfactual
-          Distractor Search propagates clean and attacked trajectories in parallel to find
+          Distractor Search propagates trajectories to find
           plausible competing regions that become increasingly effective under
           perturbation. We further analyze transferability and defence mechanisms that can be used to mitigate such impact.
         </TextBlock>
-        <section aria-label="DistractAttack method" className="figure-gallery method-gallery">
+        <section className="figure-gallery method-gallery">
           <PaperFigure
-            alt="DistractAttack method overview"
-            src="distractattack-method.png"
+            alt="Method overview"
+            src="method.png"
           />
         </section>
         <CiteUs
