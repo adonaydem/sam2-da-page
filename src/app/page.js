@@ -65,10 +65,10 @@ export default function Home() {
           title={
             <>
               <span className="hero-title-line">
-                Visual Distraction Adversarial
+                Visual Distraction Adversarial Perturbations 
               </span>{" "}
               <span className="hero-title-line">
-                Perturbations on SAM2-Based Video Tracking and Segmentation
+                on SAM2-Based Video Tracking and Segmentation
               </span>
             </>
           }
