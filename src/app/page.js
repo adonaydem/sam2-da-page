@@ -85,7 +85,7 @@ export default function Home() {
               <span><sup>3</sup> University of Western Australia, Australia</span>
             </>
           }
-          publishedAt="✨ WACV 2027 ✨"
+          publishedAt="✨ Just Accepted at WACV 2027, Code coming soon. ✨"
         />
         <ProjectLinks
           links={[
