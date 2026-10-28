@@ -177,16 +177,6 @@ canvas {
   background: var(--surface);
 }
 
-.project-link--disabled,
-.project-link--disabled:hover {
-  border-color: var(--line);
-  color: #878d97;
-  background: var(--surface);
-  cursor: not-allowed;
-  opacity: 0.72;
-  transform: none;
-}
-
 .project-link svg {
   stroke: currentColor;
 }

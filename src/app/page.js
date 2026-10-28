@@ -1,6 +1,7 @@
 import * as React from "react";
 import Footer from "../component/Footer";
 import ProjectHeader from "../component/ProjectHeader";
+import ProjectLinks from "../component/ProjectLink";
 import TextBlock from "../component/TextBlock";
 import CiteUs from "../component/Cite/Cite";
 
@@ -84,7 +85,12 @@ export default function Home() {
               <span><sup>3</sup> University of Western Australia, Australia</span>
             </>
           }
-          publishedAt="✨ We just got accepted to WACV 2027, paper coming soon ✨"
+          publishedAt="✨ WACV 2027 ✨"
+        />
+        <ProjectLinks
+          links={[
+            { iconId: "archive", label: "Paper", href: paperAsset("paper.pdf") },
+          ]}
         />
         <section aria-label="Supplementary qualitative comparison" className="project-video">
           <video
